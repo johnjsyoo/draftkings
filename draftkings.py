@@ -26,7 +26,17 @@ nflgame.combine_game_stats(nflgame.games(2015, week = 3)).csv("week3.csv")
 nflgame.combine_game_stats(nflgame.games(2015, week = 2)).csv("week2.csv")
 nflgame.combine_game_stats(nflgame.games(2015, week = 1)).csv("week1.csv")
 
+week1 = nflgame.combine_game_stats(nflgame.games(2015, week = 1))
+positions = ['QB','WR','TE','RB']
+for p in week1:
+    if p.guess_position in positions:
+        print p
+
 nflgame.combine_game_stats(nflgame.games(2015)).csv("2015.csv")
+
+for x in range(1,18):
+    nflgame.combine_game_stats(nflgame.games(2014, week = x)).csv("2014week%s.csv" % x)
+
 
 
 #######################################################################################################################
