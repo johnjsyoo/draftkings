@@ -34,12 +34,53 @@ for p in week1:
 
 nflgame.combine_game_stats(nflgame.games(2015)).csv("2015.csv")
 
+########################################################################################################################
+"""
+Quick way to download all player stats in a given season
+"""
 for x in range(1,18):
-    nflgame.combine_game_stats(nflgame.games(2014, week = x)).csv("2014week%s.csv" % x)
+    players = nflgame.combine_game_stats(nflgame.games(2014, week = x))
+    for player in players:
+        if player not in players.defense():
+            player.
+##############################
+import csv
+
+fields, rows = set([]), []
+players = list(self)
+for p in players:
+    for field, stat in p.stats.iteritems():
+        fields.add(field)
+if allfields:
+    for statId, info in statmap.idmap.iteritems():
+        for field in info['fields']:
+            fields.add(field)
+fields = sorted(list(fields))
+
+for p in players:
+    d = {
+        'name': p.name,
+        'id': p.playerid,
+        'home': p.home and 'yes' or 'no',
+        'team': p.team,
+        'pos': 'N/A',
+    }
+    if p.player is not None:
+        d['pos'] = p.player.position
+
+    for field in fields:
+        if field in p.__dict__:
+            d[field] = p.__dict__[field]
+        else:
+            d[field] = ""
+    rows.append(d)
+
+fieldNames = ["name", "id", "home", "team", "pos"] + fields
+rows = [dict((f, f) for f in fieldNames)] + rows
+csv.DictWriter(open(fileName, 'w+'), fieldNames).writerows(rows)
 
 
-
-#######################################################################################################################
+########################################################################################################################
 """
 Downloading a CSV of the entire 2015 NFL Schedule
 """
@@ -49,12 +90,14 @@ import csv
 
 schedule_games = nflgame.sched.games
 
-with open('2015_Schedule.csv', 'wb') as csvfile:
-    schedulewriter = csv.writer(csvfile, delimiter=',')
-    schedulewriter.writerow(['Home', 'Away', 'Week', 'Year'])
-    for (y, t, w, h, a), info in schedule_games:
-        if y == 2015 and t=='REG':
-            schedulewriter.writerow([h, a, w, y])
+def writeScheduletoCSV(year):
+    with open('Schedule_'+str(year)+'.csv', 'wb') as csvfile:
+        schedulewriter = csv.writer(csvfile, delimiter=',')
+        schedulewriter.writerow(['Week', 'Home', 'Away', 'Year', 'Weekday', 'Month', 'Day'])
+        for item, info in schedule_games.iteritems():
+            if info['year'] == year and info['season_type']=='REG':
+                row = info['week'], info['home'], info['away'], info['year'], info['wday'], info['month'], info['day']
+                schedulewriter.writerow(row)
 #######################################################################################################################
 """
 Listing top Receivers Targeted
@@ -68,7 +111,7 @@ games = nflgame.games(year, weeks)
 players = nflgame.combine(games, plays=True)
 
 for p in players.sort('receiving_tar').limit(50):
-    print p, p.receiving_tar
+    print p, p.receiving_tar, p.team
 
 #######################################################################################################################
 
@@ -83,32 +126,10 @@ players = nflgame.combine(games, plays=True)
 for p in players.sort('receiving_tar').limit(50):
     print p, p.receiving_tar
 
+#######################################################################################################################
 
+import nflgame
 
-
-
-year = 2015
-games = nflgame.games(year, home="NE", away="NE")
-bigben = nflgame.find('Tom Brady')[0]
-# bigben -> Ben Roethlisberger (QB, PIT)
-# bigben.gsis_name -> B.Roethlisberger
-
-for i, game in enumerate(games):
-    if game.players.name(bigben.gsis_name):
-        stats = game.players.name(bigben.gsis_name).passing_yds
-        print 'Game {:2}, Week {:2} - {:4}'.format(
-            i+1, game.schedule['week'], stats)
-
-print '-'*25
-players = nflgame.combine(games)
-print '{:9} Season - {:4}'.format(
-    year, players.name(bigben.gsis_name).passing_yds)
-
-
-for  in schedule_games.iteritems():
-        if y == 2015 and t=='REG':
-            print y
-
-d = {'x': 1, 'y': 2, 'z': 3}
-for key in d:
-    print key, 'corresponds to', d[key]
+games = nflgame.games(2015)
+teams = nflgame.combine_game_stats(games)
+for team in teams.offense()
