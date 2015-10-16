@@ -2,14 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da0de42b-1871-4390-a143-6bf5a3e28afc" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\LV-JYOO\Documents\GitHub\draftkings\2015.csv" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\LV-JYOO\Documents\GitHub\draftkings\weeklydata\week1.csv" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\LV-JYOO\Documents\GitHub\draftkings\weeklydata\week2.csv" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\LV-JYOO\Documents\GitHub\draftkings\weeklydata\week3.csv" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\LV-JYOO\Documents\GitHub\draftkings\weeklydata\week4.csv" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\LV-JYOO\Documents\GitHub\draftkings\weeklydata\week5.csv" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\LV-JYOO\Documents\GitHub\draftkings\week2014\2014week1.csv" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\LV-JYOO\Documents\GitHub\draftkings\week2014\2014week2.csv" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\LV-JYOO\Documents\GitHub\draftkings\week2014\2014week3.csv" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\LV-JYOO\Documents\GitHub\draftkings\week2014\2014week4.csv" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\LV-JYOO\Documents\GitHub\draftkings\week2014\2014week5.csv" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\LV-JYOO\Documents\GitHub\draftkings\week2014\2014week6.csv" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\LV-JYOO\Documents\GitHub\draftkings\week2014\2014week7.csv" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\LV-JYOO\Documents\GitHub\draftkings\week2014\2014week8.csv" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\LV-JYOO\Documents\GitHub\draftkings\week2014\2014week9.csv" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2015.xlsx" afterPath="$PROJECT_DIR$/2015.xlsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DKSalaries.xlsx" afterPath="$PROJECT_DIR$/DKSalaries.xlsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/draftkings.py" afterPath="$PROJECT_DIR$/draftkings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="draftkings.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,9 +38,21 @@
       <file leaf-file-name="draftkings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/draftkings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7027559">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.40733945">
+              <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="102" selection-end-column="44" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="csvcombiner.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/csvcombiner.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="36" column="33" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
+              <folding>
+                <element signature="e#70#92#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -56,6 +73,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/scheduleDownload.py" />
+        <option value="$PROJECT_DIR$/csvcombiner.py" />
         <option value="$PROJECT_DIR$/draftkings.py" />
       </list>
     </option>
@@ -79,7 +97,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -90,30 +108,7 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="draftkings" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="draftkings" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="draftkings" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="FullScreen" value="false" />
@@ -257,17 +252,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="269" y="0" width="1331" height="860" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24877365" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26474622" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21399178" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921812" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -275,7 +271,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -303,11 +298,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/draftkings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/Anaconda/Lib/site-packages/nflgame/player.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33224756">
           <caret line="305" column="0" selection-start-line="305" selection-start-column="0" selection-end-line="305" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -322,16 +324,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.53543305">
           <caret line="16" column="81" selection-start-line="16" selection-start-column="80" selection-end-line="16" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/csvcombiner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="33" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
           <folding>
-            <element signature="e#102#116#0" expanded="true" />
+            <element signature="e#70#92#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/draftkings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7027559">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.40733945">
+          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="102" selection-end-column="44" />
           <folding />
         </state>
       </provider>

@@ -3,7 +3,10 @@ me
 """
 Spyder Editor
 
-This is a temporary script file.
+This is me trying to create a CSV file output.
+
+The next module is actually a lot more helpful
+
 """
 import nflgame
 
