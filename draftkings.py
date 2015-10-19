@@ -6,23 +6,18 @@ Spyder Editor
 This is me trying to create a CSV file output.
 
 The next module is actually a lot more helpful
-
 """
 import nflgame
 
-games = nflgame.games(2015, week=5)
+games = nflgame.games(2015, week=3)
 players = nflgame.combine_game_stats(games)
-positions = ['QB','WR','TE','RB']
+positions = ['CB']
 stats = {}
 for p in players:
     if p.guess_position in positions:
-        print p.name, p.guess_position, p.passing_tds, p.passing_cmp, p.passing_att, p.passing_yds, p.passing_ints,\
-            p.rushing_att, p.rushing_yds, p.rushing_tds, \
-            p.receiving_yds, p.receiving_rec, p.receiving_tds, \
-            p.fumbles_lost,\
-            p.twoptm, p.twopta,\
-            p.puntret_tds, p.kickret_tds
+        print p.stats, p.defense_int_tds
 
+nflgame.combine_game_stats(nflgame.games(2015, week = 6)).csv("week6.csv")
 nflgame.combine_game_stats(nflgame.games(2015, week = 5)).csv("week5.csv")
 nflgame.combine_game_stats(nflgame.games(2015, week = 4)).csv("week4.csv")
 nflgame.combine_game_stats(nflgame.games(2015, week = 3)).csv("week3.csv")
@@ -36,53 +31,6 @@ for p in week1:
         print p
 
 nflgame.combine_game_stats(nflgame.games(2015)).csv("2015.csv")
-
-########################################################################################################################
-"""
-Quick way to download all player stats in a given season
-"""
-for x in range(1,18):
-    players = nflgame.combine_game_stats(nflgame.games(2014, week = x))
-    for player in players:
-        if player not in players.defense():
-            player.
-##############################
-import csv
-
-fields, rows = set([]), []
-players = list(self)
-for p in players:
-    for field, stat in p.stats.iteritems():
-        fields.add(field)
-if allfields:
-    for statId, info in statmap.idmap.iteritems():
-        for field in info['fields']:
-            fields.add(field)
-fields = sorted(list(fields))
-
-for p in players:
-    d = {
-        'name': p.name,
-        'id': p.playerid,
-        'home': p.home and 'yes' or 'no',
-        'team': p.team,
-        'pos': 'N/A',
-    }
-    if p.player is not None:
-        d['pos'] = p.player.position
-
-    for field in fields:
-        if field in p.__dict__:
-            d[field] = p.__dict__[field]
-        else:
-            d[field] = ""
-    rows.append(d)
-
-fieldNames = ["name", "id", "home", "team", "pos"] + fields
-rows = [dict((f, f) for f in fieldNames)] + rows
-csv.DictWriter(open(fileName, 'w+'), fieldNames).writerows(rows)
-
-
 ########################################################################################################################
 """
 Downloading a CSV of the entire 2015 NFL Schedule
@@ -116,23 +64,21 @@ players = nflgame.combine(games, plays=True)
 for p in players.sort('receiving_tar').limit(50):
     print p, p.receiving_tar, p.team
 
-#######################################################################################################################
-
-nflgame.combine_game_stats(nflgame.games(2015, week = 5))
-
-year, current_week = nflgame.live.current_year_and_week()
-weeks = [x for x in range(1, current_week+1)]
-
-games = nflgame.games(year, weeks)
-players = nflgame.combine(games, plays=True)
-
-for p in players.sort('receiving_tar').limit(50):
-    print p, p.receiving_tar
 
 #######################################################################################################################
+"""
+Prints out all scores
+"""
 
 import nflgame
+import csv
 
-games = nflgame.games(2015)
-teams = nflgame.combine_game_stats(games)
-for team in teams.offense()
+def writeScoresToCSV(year):
+    games = nflgame.games_gen(year)
+    with open('Scores_'+str(year)+'.csv', 'wb') as csvfile:
+        scorewriter = csv.writer(csvfile, delimiter=',')
+        scorewriter.writerow(['Week', 'Home', 'Home_Score', 'Away', 'Away_Score'])
+        for game in games:
+            row = game.schedule['week'], game.home, game.score_home, game.away, game.score_away
+            scorewriter.writerow(row)
+
