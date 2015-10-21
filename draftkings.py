@@ -1,37 +1,90 @@
 me
 # -*- coding: utf-8 -*-
 """
-Spyder Editor
-
-This is me trying to create a CSV file output.
-
-The next module is actually a lot more helpful
+Creating a real CSV output
 """
-import nflgame
+import csv
+from nflgame import statmap
 
-games = nflgame.games(2015, week=3)
-players = nflgame.combine_game_stats(games)
-positions = ['CB']
-stats = {}
-for p in players:
-    if p.guess_position in positions:
-        print p.stats, p.defense_int_tds
+"""
+Function that reads to CSV from nflgame object
+"""
+def csvIterator(gameFile, week, fileName, allfields=True):
 
-nflgame.combine_game_stats(nflgame.games(2015, week = 6)).csv("week6.csv")
-nflgame.combine_game_stats(nflgame.games(2015, week = 5)).csv("week5.csv")
-nflgame.combine_game_stats(nflgame.games(2015, week = 4)).csv("week4.csv")
-nflgame.combine_game_stats(nflgame.games(2015, week = 3)).csv("week3.csv")
-nflgame.combine_game_stats(nflgame.games(2015, week = 2)).csv("week2.csv")
-nflgame.combine_game_stats(nflgame.games(2015, week = 1)).csv("week1.csv")
+    """
+    Grabs a list of fields
+    """
+    fields, rows = set([]), []
+    players = list(gameFile)
+    for p in players:
+        for field, stat in p.stats.iteritems():
+            fields.add(field)
+    if allfields:
+        for statId, info in statmap.idmap.iteritems():
+            for field in info['fields']:
+                fields.add(field)
+    fields = sorted(list(fields))
 
-week1 = nflgame.combine_game_stats(nflgame.games(2015, week = 1))
-positions = ['QB','WR','TE','RB']
-for p in week1:
-    if p.guess_position in positions:
-        print p
+    """
+    Grabs a list of Players
+    """
+    for p in players:
+        d = {
+            'name': p.name,
+            'id': p.playerid,
+            'home': p.home and 'yes' or 'no',
+            'team': p.team,
+            'pos': 'N/A',
+            'week': week
+        }
+        if p.player is not None:
+            d['pos'] = p.player.position
 
-nflgame.combine_game_stats(nflgame.games(2015)).csv("2015.csv")
+        """
+        Adds the stat to each field
+        """
+        for field in fields:
+            if field in p.__dict__:
+                d[field] = p.__dict__[field]
+            else:
+                d[field] = ""
+        rows.append(d)
+
+    fieldNames = ["name", "id", "home", "team", "pos", "week"] + fields
+    rows = [dict((f, f) for f in fieldNames)] + rows
+    csv.DictWriter(open(fileName, 'w+'), fieldNames).writerows(rows)
+
+"""
+This section does the actual tasks of writing to CSV
+"""
+for weekNum in range(1,7):
+    gameFile = nflgame.combine_game_stats(nflgame.games(2015, week = weekNum))
+    createCSV(gameFile,weekNum,"2015week"+str(weekNum)+".csv")
+
+"""
+Function that combines all CSVs into one baby
+"""
+import glob
+import os
+
+os.getcwd()
+os.chdir("week2015\\")
+
+interesting_files = glob.glob("*.csv")
+
+header_saved = False
+with open('2015stats.csv','wb') as fout:
+    for filename in interesting_files:
+        with open(filename) as fin:
+            header = next(fin)
+            if not header_saved:
+                fout.write(header)
+                header_saved = True
+            for line in fin:
+                fout.write(line)
+
 ########################################################################################################################
+
 """
 Downloading a CSV of the entire 2015 NFL Schedule
 """
@@ -64,12 +117,10 @@ players = nflgame.combine(games, plays=True)
 for p in players.sort('receiving_tar').limit(50):
     print p, p.receiving_tar, p.team
 
-
 #######################################################################################################################
 """
-Prints out all scores
+Exports all scores
 """
-
 import nflgame
 import csv
 
