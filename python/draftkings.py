@@ -56,10 +56,14 @@ def csvIterator(gameFile, week, fileName, allfields=True):
 
 """
 This section does the actual tasks of writing to CSV
+
+Must change the week range
 """
+import nflgame
+
 for weekNum in range(1,7):
     gameFile = nflgame.combine_game_stats(nflgame.games(2015, week = weekNum))
-    createCSV(gameFile,weekNum,"2015week"+str(weekNum)+".csv")
+    csvIterator(gameFile,weekNum,"2015week"+str(weekNum)+".csv")
 
 """
 Function that combines all CSVs into one baby
@@ -97,7 +101,7 @@ schedule_games = nflgame.sched.games
 def writeScheduletoCSV(year):
     with open('Schedule_'+str(year)+'.csv', 'wb') as csvfile:
         schedulewriter = csv.writer(csvfile, delimiter=',')
-        schedulewriter.writerow(['Week', 'Home', 'Away', 'Year', 'Weekday', 'Month', 'Day'])
+        schedulewriter.writerow(['week', 'home', 'away', 'year', 'weekday', 'month', 'day'])
         for item, info in schedule_games.iteritems():
             if info['year'] == year and info['season_type']=='REG':
                 row = info['week'], info['home'], info['away'], info['year'], info['wday'], info['month'], info['day']
